@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+    <form method="post" action="@Url.Action("Login")" >
+        <div>
+            <div>
+                <label>用户名:<input type="text" name="Account" placeholder="账号" /></label>
+            </div>
+            <div>
+                <label>密码:<input type="password" name="Password" placeholder="密码" /></label>
+            </div>
+            <div>@ViewData["LoginMsg"]</div>
+            <div> <a>注册</a><input type="submit"  value="登入" /> </div>
+        </div>
+    </form>
+    </div>
+</body>
+</html>
