@@ -22,9 +22,10 @@ namespace WebApplication1.code.HQShareLogin
         /// <summary>
         /// cookie域名,同步站点保持一致
         /// </summary>
-        public static string CookieDomain = "test.cc";
+        public static string CookieDomain = "hqbuy.hqenet.com";
         public void Configuration(IAppBuilder app)
-        {
+        { 
+             
 
             // 使应用程序可以使用 Cookie 来存储已登录用户的信息
             // 并使用 Cookie 来临时存储有关使用第三方登录提供程序登录的用户的信息
@@ -32,16 +33,16 @@ namespace WebApplication1.code.HQShareLogin
             app.UseCookieAuthentication(new CookieAuthenticationOptions
             {
                 //AuthenticationType = DefaultAuthenticationTypes.ApplicationCookie,
-                AuthenticationType = HQAuthenticationName,
-
+                AuthenticationType = HQAuthenticationName
+                ,
                 // LoginPath = new PathString("/Account/Login"),
                 CookieDomain = CookieDomain
                 ,
-                CookieName = HQAuthenticationName
+                CookieName = "HQAuthentication." + HQAuthenticationName
                 ,
                 TicketDataFormat = new HQSecureDataFormat()
                 ,
-                ExpireTimeSpan = new TimeSpan(0, 5, 0)
+                ExpireTimeSpan = new TimeSpan(0, 20, 0)
                  
                 //,
                 //,
@@ -80,6 +81,8 @@ namespace WebApplication1.code.HQShareLogin
             claimsIdentity.AddClaim(claim);
             // 3. 将上面拿到的identity对象登录
             AuthenticationManager.SignIn(claimsIdentity);
+
+
         }
         public static void HQLogout()
         {

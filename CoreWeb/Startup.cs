@@ -76,7 +76,7 @@ namespace CoreWeb
                     Console.WriteLine("AddHQAuthentication2 LogOut ");
                  };
 
-                options.Domain = "test.cc";
+                options.Domain = "hqbuy.hqenet.com";
 
                 CookieOption.AccessDeniedPath = "/home/index?LoginMsg=AccessDeniedPath";
                 CookieOption.LoginPath = "/home/index?LoginMsg=LoginPath";

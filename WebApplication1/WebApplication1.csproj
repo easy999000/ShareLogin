@@ -135,7 +135,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="code\HQShareLogin\Class1.cs" />
     <Compile Include="code\HQShareLogin\HQAuthenticationManager.cs" />
     <Compile Include="code\HQShareLogin\HQSecureDataFormat.cs" />
     <Compile Include="code\HQShareLogin\HQTicketSerializer.cs" />

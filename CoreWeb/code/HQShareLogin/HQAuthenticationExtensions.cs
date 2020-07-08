@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 namespace Microsoft.Extensions.DependencyInjection
 {
     public static class HQAuthenticationExtensions
-    { 
+    {
         public static AuthenticationBuilder AddHQAuthentication2(this AuthenticationBuilder builder
             , Action<HQAuthenticationHandlerOptions, CookieAuthenticationOptions> ConfigOption)
         {
@@ -24,14 +24,14 @@ namespace Microsoft.Extensions.DependencyInjection
             builder.AddHQCookie(HQAuthenticationHandlerOptions.HQAuthenticationName, o =>
             {
 
-                o.Cookie.Name = HQAuthenticationHandlerOptions.HQAuthenticationName;
+                o.Cookie.Name = "HQAuthentication." + HQAuthenticationHandlerOptions.HQAuthenticationName;
 
                 ConfigOption?.Invoke(option, o);
 
                 o.Events.OnSignedIn += option.SignedInFun;
                 o.Events.OnSigningOut += option.SigningOut;
                 o.Events.OnValidatePrincipal += option.CookieValidatePrincipal;
-                
+
                 o.TicketDataFormat = new HQSecureDataFormat();
                 o.Cookie.Domain = option.Domain;
 
