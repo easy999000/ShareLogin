@@ -86,6 +86,7 @@ namespace CoreWeb.Controllers
             if (user == null)
             {
                 user = new HQuser();
+                user.account = "没登入";
             }
 
             return View(user);

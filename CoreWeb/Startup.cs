@@ -10,6 +10,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.VisualBasic.FileIO;
 
 namespace CoreWeb
 {
@@ -41,7 +42,8 @@ namespace CoreWeb
                 .AddHQAuthentication2((options, CookieOption) =>
             {
 
-                options.HasLoginEvent += () =>
+                options.HasLoginEvent +=// class1.loginFun;
+                () =>
                {
                    var httpContextAccessor = services.BuildServiceProvider().GetService<IHttpContextAccessor>();
 
@@ -66,6 +68,7 @@ namespace CoreWeb
 
 
                     Console.WriteLine("AddHQAuthentication2 Login ");
+
                 };
                 options.LogOutEvent += () =>
                 {
@@ -76,7 +79,7 @@ namespace CoreWeb
                     Console.WriteLine("AddHQAuthentication2 LogOut ");
                  };
 
-                options.Domain = "hqbuy.hqenet.com";
+                options.Domain = "hqbuy.com";
 
                 CookieOption.AccessDeniedPath = "/home/index?LoginMsg=AccessDeniedPath";
                 CookieOption.LoginPath = "/home/index?LoginMsg=LoginPath";
